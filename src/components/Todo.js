@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Todo() {
+export default function Todo({ text }) {
   return (
     <div>
       <div className="todo">
-        <li className="todo-item">Test</li>
+        <li className="todo-item">{text}</li>
 
         <button className="complete-btn">
           <i className="fas fa-check"></i>
