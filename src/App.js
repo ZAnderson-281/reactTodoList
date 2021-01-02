@@ -10,15 +10,19 @@ function App() {
   const [status, setStatus] = useState("all");
   const [filteredTodos, setfilteredTodos] = useState([]);
 
+  // Run once at start to get local storage
   useEffect(() => {
     getLocalTodos();
   }, []);
+
+  // Filter todo list and save to local storage
   useEffect(() => {
     filterHandler();
     saveLocalTodos();
   }, [todos, status]);
 
   const filterHandler = () => {
+    // Filter items depending on what is selected on the dropdown
     switch (status) {
       case "completed":
         setfilteredTodos(todos.filter((todo) => todo.completed === true));
@@ -36,6 +40,7 @@ function App() {
     localStorage.setItem("todos", JSON.stringify(todos));
   };
 
+  // Get local storage
   const getLocalTodos = () => {
     if (localStorage.getItem("todos") === null) {
       localStorage.setItem("todos", JSON.stringify([]));
@@ -57,6 +62,8 @@ function App() {
         setTodos={setTodos}
         setStatus={setStatus}
       />
+
+      {/* Create component based on filtered todos */}
       <TodoList todos={filteredTodos} setTodos={setTodos} />
     </div>
   );
