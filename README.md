@@ -4,7 +4,7 @@
 
 This app is a basic todo app written in React Javascript. It was developed as a practice project to further my skills in components and react hooks.
 
-## How to use
+## Usage
 
 To use this app, enter the task you want to add to the list into the textbox and then press plus button located on right.
 The app will register that task to internal local memoory and display a UI component.
